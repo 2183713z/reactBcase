@@ -12,7 +12,7 @@ class TestChildren extends React.Component {
     )
   }
 }
-TestChildren.ContextTypes = {
+TestChildren.contextTypes = {
   color: React.PropTypes.string
 };
 export default TestChildren;
