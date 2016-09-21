@@ -2,6 +2,7 @@ import React from 'react';
 import NavHeader from './components/NavHeader'
 import NavFooter from './components/NavFooter'
 import LeftNav from './components/LeftNav'
+
 class App extends React.Component {
   constructor(){
     super();
@@ -11,36 +12,28 @@ class App extends React.Component {
     }
   }
   setNavBarState(){
-    this.setState({
-      showNav:window.innerWidth >760 ?  true : false
+    this.setNavBarState();
+    window.onresize=this.setNavBarState.bind(this);
+  }
+
+  componentWillReceiveProps(){
+    this.setTitle();
+  }
+  componentWillMount(){
+    this.setTitle();
+  }
+  setTitle(){
+    this.setState=({
+      title:this.context.router.isActive('/',true) ? 'Home':
+           this.context.router.isActive('/blog') ? 'Blog' :
+           this.context.router.isActive('/work') ? 'Work' :
+           this.context.router.isActive('/about') ? 'About' : 'Item'
     })
   }
-  // setNavBarState(){
-  //   this.setNavBarState();
-  //   window.onresize=this.setNavBarState.bind(this);
-  // }
-  componentDidMount(){
-    this.setNavBarState();
-    window.onresize=this.setNavBarState.bind(this)
-  }
-  // componentWillReceiveProps(){
-  //   this.setTitle();
-  // }
-  // componentWillMount(){
-  //   this.setTitle();
-  // }
-  // setTitle(){
-  //   this.state={
-  //     this:this.context.router.isActive('/',true) ? 'Home':
-  //          this.context.router.isActive('/blog') ? 'Blog' :
-  //          this.context.router.isActive('/work') ? 'Work' :
-  //          this.context.router,isActive('/about') ? 'About' :'Item'
-  //   }
-  // }
   render () {
     return(
       <div className='content-wrap'>
-          {this.state.showNav ? <LeftNav/> : <NavHeader />}
+          {this.state.showNav ? <LeftNav title={this.state.title}/> : <NavHeader title={this.state.title}/>}
           <div className='content-main'>
               {this.props.children}
           </div>
