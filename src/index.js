@@ -6,4 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './main.css'
 
 import Test from './Test'
+import './post.css'
+import 'highlight.js/styles/github.css'
 render(<Routers />,document.getElementById('root'));

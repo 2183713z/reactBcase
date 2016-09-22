@@ -28,7 +28,7 @@ class Blog extends React.Component {
   render () {
     return(
       <div style={{width:'100%',marginTop:'20px'}}>
-        {this.state.data.map( (item,i) => <Blogcard {...item} key={i} />)}
+        {this.state.wait ? '请稍等' : this.state.data.map( (item,i) => <Blogcard {...item} key={i} />)}
       </div>
     )
   }
