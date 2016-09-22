@@ -12,6 +12,9 @@ class App extends React.Component {
     }
   }
   setNavBarState(){
+    this.setState({showNav:window.innerWidth > 760 ? true : false});
+  }
+  componentDidMount(){
     this.setNavBarState();
     window.onresize=this.setNavBarState.bind(this);
   }
@@ -23,7 +26,7 @@ class App extends React.Component {
     this.setTitle();
   }
   setTitle(){
-    this.setState=({
+    this.setState({
       title:this.context.router.isActive('/',true) ? 'Home':
               this.context.router.isActive('/blog') ? 'Blog' :
               this.context.router.isActive('/work') ? 'Work' :

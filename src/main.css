@@ -113,3 +113,16 @@
 .home-btn:hover{
   background-color: #00bcd4;
 }
+.blog-btn{
+  color:#ff4081;
+  padding:5px 20px;
+  border:1px solid #ff4081;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius:20px;
+  transition: all 450ms ease;
+}
+.blog-btn:hover{
+  color:#fff;
+  background-color: #ff4081;
+}
