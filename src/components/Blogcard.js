@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-
+import { Link } from 'react-router'
 class Blogcard extends React.Component {
   render () {
     let styles={
@@ -40,18 +40,16 @@ class Blogcard extends React.Component {
       desc:{
         fontSize:'16px',
         marginBottom:'20px'
-      },
-      btn:{
-
       }
     }
+    let address=`item/${this.props.url}`;
     return (
       <div style={styles.root}>
         <div style={styles.index}><span style={styles.num}>{this.props.index}</span></div>
         <div style={styles.content}>
           <p style={styles.title}>{this.props.title}</p>
           <p style={styles.desc}>{this.props.desc}</p>
-          <p><a href='#' className='blog-btn'>阅读更多</a></p>
+          <p><Link to={address} className='blog-btn'>阅读更多</Link></p>
         </div>
       </div>
     )
