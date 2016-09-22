@@ -29,7 +29,6 @@ class Item extends React.Component {
     console.log(this.props);
     return (
       <div className='post-content'>
-        {/*{this.props.params.url}*/}
         {this.state.wait ? '请稍等' :
           <div dangerouslySetInnerHTML={{__html:marked(this.state.data)}} />}
 

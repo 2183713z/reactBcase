@@ -42,7 +42,7 @@ class Blogcard extends React.Component {
         marginBottom:'20px'
       }
     }
-    let address=`item/${this.props.url}`;
+    let address=`item/${this.props.url}`;   
     return (
       <div style={styles.root}>
         <div style={styles.index}><span style={styles.num}>{this.props.index}</span></div>
